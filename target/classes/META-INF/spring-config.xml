@@ -12,6 +12,7 @@
         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
 	default-lazy-init="true">
 
+	<!-- Activate automatical ressources on Spring with Dependency Injection by annotations -->
 	<context:annotation-config />
 	<context:component-scan
 		base-package="project.spring.data.model" />
@@ -40,7 +41,7 @@
 				<property name="generateDdl" value="true" /> <!-- Create the tables on the data base -->
 			</bean>
 		</property>
-		<property name="persintenceUnitName" value="project-spring-data"/>
+		<property name="persistenceUnitName" value="project-spring-data"/>
 	</bean>
 
 	<!-- Activate transactional controler -->
