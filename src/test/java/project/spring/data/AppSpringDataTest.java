@@ -1,5 +1,7 @@
 package project.spring.data;
 
+import java.util.Optional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +34,20 @@ public class AppSpringDataTest {
 		System.out.println("Inserted Users -> " + interfaceSpringDataUser.count());
 		
 	}
+	
+	@Test
+	public void testFind() {
+		
+		Optional<UserSpringData> userSpringData = interfaceSpringDataUser.findById(1L);
+
+		System.out.println(userSpringData.get().getId());
+		System.out.println(userSpringData.get().getAge());
+		System.out.println(userSpringData.get().getEmail());
+		System.out.println(userSpringData.get().getLogin());
+		System.out.println(userSpringData.get().getName());
+		System.out.println(userSpringData.get().getPassword());
+
+		
+	}	
 
 }
