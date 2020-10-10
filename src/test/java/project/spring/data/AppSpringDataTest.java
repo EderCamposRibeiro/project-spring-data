@@ -61,5 +61,31 @@ public class AppSpringDataTest {
 		}
 		
 	}		
+	
+	@Test
+	public void testUpdate() {
+		
+		Optional<UserSpringData> userSpringData = interfaceSpringDataUser.findById(3L);
+		
+		UserSpringData data = userSpringData.get();
+		
+		data.setName("Eder Campos Updated");
+		
+		interfaceSpringDataUser.save(data);
+		
+	}	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
