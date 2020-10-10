@@ -1,5 +1,6 @@
 package project.spring.data;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
@@ -96,6 +97,17 @@ public class AppSpringDataTest {
 		interfaceSpringDataUser.delete(userSpringData.get());
 		
 		System.out.println("Inserted Users after delete -> " + interfaceSpringDataUser.count());
+	}	
+	
+	@Test
+	public void testFindByName() {
+		
+		List<UserSpringData> list = interfaceSpringDataUser.findByName("Eder");
+		
+		for (UserSpringData userSpringData : list) {
+			System.out.println(userSpringData);
+			System.out.println("------------------------------------");
+		}
 	}	
 	
 
