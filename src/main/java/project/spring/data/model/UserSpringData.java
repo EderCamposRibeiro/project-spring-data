@@ -69,6 +69,14 @@ public class UserSpringData {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	@Override
+	public String toString() {
+		return "UserSpringData [id=" + id + ", login=" + login + ", password=" + password + ", name=" + name
+				+ ", email=" + email + ", age=" + age + "]";
+	}
+	
+	
 	
 	
 }

@@ -49,5 +49,17 @@ public class AppSpringDataTest {
 
 		
 	}	
+	
+	@Test
+	public void testFindAll() {
+		
+		Iterable<UserSpringData> list = interfaceSpringDataUser.findAll();
+		
+		for (UserSpringData userSpringData : list) {
+			System.out.println(userSpringData);
+			System.out.println("------------------------------------");
+		}
+		
+	}		
 
 }
