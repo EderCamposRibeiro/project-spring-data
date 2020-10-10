@@ -110,6 +110,15 @@ public class AppSpringDataTest {
 		}
 	}	
 	
+	@Test
+	public void testFindByNameParam() {
+		
+		UserSpringData userSpringData = interfaceSpringDataUser.findByNameParam("Ribeiro");
+		
+			System.out.println(userSpringData);
+		
+	}		
+	
 
 }
 
