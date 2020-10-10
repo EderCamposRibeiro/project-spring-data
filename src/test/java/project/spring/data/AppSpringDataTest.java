@@ -75,6 +75,29 @@ public class AppSpringDataTest {
 		
 	}	
 	
+	@Test
+	public void testDelete() {
+		
+		System.out.println("Inserted Users before delete -> " + interfaceSpringDataUser.count());
+		
+		interfaceSpringDataUser.deleteById(5L);
+		
+		System.out.println("Inserted Users after delete -> " + interfaceSpringDataUser.count());
+		
+	}
+	
+	@Test
+	public void testDeleteConsult() {
+		
+		System.out.println("Inserted Users before delete -> " + interfaceSpringDataUser.count());
+		
+		Optional<UserSpringData> userSpringData = interfaceSpringDataUser.findById(3L);
+		
+		interfaceSpringDataUser.delete(userSpringData.get());
+		
+		System.out.println("Inserted Users after delete -> " + interfaceSpringDataUser.count());
+	}	
+	
 
 }
 
