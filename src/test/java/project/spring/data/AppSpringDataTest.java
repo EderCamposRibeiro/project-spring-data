@@ -128,6 +128,12 @@ public class AppSpringDataTest {
 		
 		System.out.println("Inserted Users after delete -> " + interfaceSpringDataUser.count());
 	}
+	
+	@Test
+	public void testUpdateByName() {
+		
+		interfaceSpringDataUser.updateEmailByName("alterado@gmail.com", "Ribeiro");
+	}
 
 }
 
