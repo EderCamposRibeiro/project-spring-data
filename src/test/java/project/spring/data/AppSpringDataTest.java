@@ -28,7 +28,7 @@ public class AppSpringDataTest {
 		userSpringData.setAge(37);
 		userSpringData.setLogin("test 123");
 		userSpringData.setPassword("123");
-		userSpringData.setName("Mazzoccante");
+		userSpringData.setName("Deletable");
 		
 		interfaceSpringDataUser.save(userSpringData);
 		
@@ -118,7 +118,16 @@ public class AppSpringDataTest {
 			System.out.println(userSpringData);
 		
 	}		
-	
+
+	@Test
+	public void testDeleteByName() {
+		
+		System.out.println("Inserted Users before delete -> " + interfaceSpringDataUser.count());
+		
+		interfaceSpringDataUser.deleteByName("Deletable");
+		
+		System.out.println("Inserted Users after delete -> " + interfaceSpringDataUser.count());
+	}
 
 }
 
