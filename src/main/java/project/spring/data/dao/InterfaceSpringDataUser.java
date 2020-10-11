@@ -2,6 +2,9 @@ package project.spring.data.dao;
 
 import java.util.List;
 
+import javax.persistence.LockModeType;
+
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -14,9 +17,12 @@ import project.spring.data.model.UserSpringData;
 @Repository
 public interface InterfaceSpringDataUser extends CrudRepository<UserSpringData, Long> {
 	
+	@Transactional(readOnly = true)
 	@Query(value = "select p from UserSpringData p where p.name like %?1%")
 	public List<UserSpringData> findByName (String name);
 	
+	@Lock(LockModeType.READ)
+	@Transactional(readOnly = true)
 	@Query(value = "select p from UserSpringData p where p.name = :paramname")
 	public UserSpringData findByNameParam(@Param("paramname") String paramname);
 	
