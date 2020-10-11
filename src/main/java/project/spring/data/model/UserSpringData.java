@@ -1,9 +1,13 @@
 package project.spring.data.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UserSpringData {
@@ -21,6 +25,9 @@ public class UserSpringData {
 	private String email;
 
 	private int age;
+	
+	@OneToMany(mappedBy = "userSpringData", orphanRemoval = true, fetch = FetchType.EAGER)
+	private List<Telephone> telephones;
 
 	public Long getId() {
 		return id;
@@ -69,13 +76,22 @@ public class UserSpringData {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	
+	public void setTelephones(List<Telephone> telephones) {
+		this.telephones = telephones;
+	}
+	
+	public List<Telephone> getTelephones() {
+		return telephones;
+	}
 
 	@Override
 	public String toString() {
 		return "UserSpringData [id=" + id + ", login=" + login + ", password=" + password + ", name=" + name
-				+ ", email=" + email + ", age=" + age + "]";
+				+ ", email=" + email + ", age=" + age + ", telephones=" + telephones + "]";
 	}
-	
+
+
 	
 	
 	
